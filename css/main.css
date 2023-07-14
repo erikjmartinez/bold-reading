@@ -33,9 +33,26 @@
   font-size: 16px;
 }
 
+.main-title {
+  font-size: 2em;
+}
+
+.title-bold_text {
+  font-weight: 700;
+}
+
+.title-bold_text img {
+  width: 0.75em;
+}
+
+hr {
+  margin: 10px 0;
+}
+
 .main_first-section,
 .main_seccond-section,
-.main_third-section {
+.main_third-section,
+.bold-text {
   padding-bottom: 10px;
 }
 

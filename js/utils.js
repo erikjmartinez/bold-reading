@@ -1,8 +1,8 @@
-export let defaultHighlightSheet = "font-weight: 600;";
-export let defaultRestSheet = "opacity: 0.8;";
+export let defaultHighlightSheet = "font-weight: 700;";
+export let defaultRestSheet = "opacity: 0.9;";
 export let defaultAlgorithm = "- 0 1 1 2 0.4";
 
-export function fastreadifyPage() {
+export function boldReadify() {
   function parseAlgorithm(algorithm) {
     try {
       var res = {
@@ -41,11 +41,11 @@ export function fastreadifyPage() {
       chrome.storage.sync.get(["highlightSheet", "restSheet"], function (data) {
         var style = document.createElement("style");
         style.type = "text/css";
-        style.id = "fastread-style-id";
+        style.id = "boldread-style-id";
         style.innerHTML =
-          ".fastread-highlight {" +
+          ".boldread-highlight {" +
           data.highlightSheet +
-          " } .fastread-rest {" +
+          " } .boldread-rest {" +
           data.restSheet +
           "}";
         document.getElementsByTagName("head")[0].appendChild(style);
@@ -53,12 +53,12 @@ export function fastreadifyPage() {
     }
 
     function deleteStyleSheet(document) {
-      var sheet = document.getElementById("fastread-style-id");
+      var sheet = document.getElementById("boldread-style-id");
       sheet.remove();
     }
 
     function hasStyleSheet() {
-      return document.getElementById("fastread-style-id") != null;
+      return document.getElementById("boldread-style-id") != null;
     }
 
     let commonWords = [
@@ -89,7 +89,7 @@ export function fastreadifyPage() {
         .replace(/\//g, "&#x2F;");
     }
 
-    function fastreadifyWord(word) {
+    function boldreadifyWord(word) {
       function isCommon(word) {
         return commonWords.indexOf(word) != -1;
       }
@@ -108,28 +108,28 @@ export function fastreadifyPage() {
 
       let textHighlight =
         numBold > 0
-          ? '<span class="fastread-highlight">' +
+          ? '<span class="boldread-highlight">' +
             word.slice(0, numBold) +
             "</span>"
           : "";
       let textRest =
-        '<span class="fastread-rest">' + word.slice(numBold) + "</span>";
+        '<span class="boldread-rest">' + word.slice(numBold) + "</span>";
 
       return textHighlight + textRest;
     }
 
-    function fastreadifyText(text) {
+    function boldreadifyText(text) {
       var res = "";
       if (text.length < 10) {
         return text;
       }
       for (var word of text.split(" ")) {
-        res += fastreadifyWord(word) + " ";
+        res += boldreadifyWord(word) + " ";
       }
       return res;
     }
 
-    function fastreadifyNode(node) {
+    function boldreadifyNode(node) {
       if (
         node.tagName === "SCRIPT" ||
         node.tagName === "STYLE" ||
@@ -139,19 +139,19 @@ export function fastreadifyPage() {
 
       if (node.tagName === "IFRAME" && node.contentDocument) {
         createStylesheet(node.contentDocument);
-        fastreadifyNode(node.contentDocument.body);
+        boldreadifyNode(node.contentDocument.body);
       }
       if (node.childNodes == undefined || node.childNodes.length == 0) {
         if (node.textContent != undefined && node.tagName == undefined) {
           var newNode = document.createElement("span");
-          newNode.innerHTML = fastreadifyText(node.textContent);
+          newNode.innerHTML = boldreadifyText(node.textContent);
           if (node.textContent.length > 20) {
             node.replaceWith(newNode);
           }
         }
       } else {
         for (var child of node.childNodes) {
-          fastreadifyNode(child);
+          boldreadifyNode(child);
         }
       }
     }
@@ -177,7 +177,7 @@ export function fastreadifyPage() {
       deleteStyleSheetIframe(document);
     } else {
       createStylesheet(document);
-      fastreadifyNode(document.body);
+      boldreadifyNode(document.body);
     }
   });
 }

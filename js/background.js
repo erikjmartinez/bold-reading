@@ -1,5 +1,5 @@
 import {
-  fastreadifyPage,
+  boldReadify,
   patternsInclude,
   defaultHighlightSheet,
   defaultRestSheet,
@@ -24,7 +24,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
         if (!patternsInclude(data.excludedPatterns, tab.url)) {
           chrome.scripting.executeScript({
             target: { tabId: tabId },
-            function: fastreadifyPage,
+            function: boldReadify,
           });
         }
       }
@@ -43,7 +43,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
 
 //     chrome.scripting.executeScript({
 //       target: { tabId: tab.id },
-//       function: fastreadifyPage,
+//       function: boldReadify,
 //     });
 //   }
 // });

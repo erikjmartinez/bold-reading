@@ -1,4 +1,4 @@
-import { fastreadifyPage } from "./utils.js";
+import { boldReadify } from "./utils.js";
 
 let toggleBoldReading = document.getElementById("toggleBoldReading");
 let autoButton = document.getElementById("autoButton");
@@ -23,10 +23,10 @@ function updateExcludeButtonText() {
   var currentPattern = excludePatternInput.value;
   chrome.storage.sync.get(["excludedPatterns"], (data) => {
     if (data.excludedPatterns.indexOf(currentPattern) != -1) {
-      excludePageButton.innerText = "Remove pattern from exclude list";
+      excludePageButton.innerText = "Remove URL from exclude list";
       setClass(excludePageButton, buttonDisabledClass);
     } else {
-      excludePageButton.innerText = "Add pattern to exclude list";
+      excludePageButton.innerText = "Add URL to exclude list";
       setClass(excludePageButton, buttonEnabledClass);
     }
   });
@@ -82,7 +82,7 @@ toggleBoldReading.addEventListener("click", async () => {
 
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
-    function: fastreadifyPage,
+    function: boldReadify,
   });
 });
 
