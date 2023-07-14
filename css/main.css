@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap");
+
+:root {
+  --mainTextColor: #000;
+
+  --color-primary: #e9f1f2;
+  --color-primary-dark: #1e2832;
+  --color-tertiary: #e08a0c;
+  --color-accent: #595ded;
+}
+
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Readex Pro";
+  background-color: var(--color-primary-dark);
+}
+
+.container-main {
+  display: block;
+  margin: 0 auto;
+  width: 350px;
+  text-align: center;
+  padding: 20px 0;
+  height: auto;
+  color: var(--color-primary);
+  font-weight: 500;
+  line-height: 1.5em;
+  font-size: 16px;
+}
+
+.main_first-section,
+.main_seccond-section,
+.main_third-section {
+  padding-bottom: 10px;
+}
+
+.main_third-section {
+  padding: 15px;
+}
+
+.main_third-section p,
+.option-one .label {
+  padding-bottom: 5px;
+}
+
+.main_forth-section p,
+.option-two .label,
+.option-three .label {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.main_third-section button,
+.main_forth-section button {
+  margin-top: 10px;
+}
+
+.btn {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  color: var(--color-primary-dark);
+  background-color: var(--color-tertiary);
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+  display: inline-block;
+  min-height: 28px;
+  transition: background-color 0.24s, box-shadow 0.24s;
+}
+
+.btn:hover,
+.btn:focus {
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(89 93 237) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px,
+    rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+}
+
+.btn-disabled {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  color: var(--color-primary);
+  background-color: var(--color-accent);
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+  display: inline-block;
+  min-height: 28px;
+  transition: background-color 0.24s, box-shadow 0.24s;
+}
+
+.btn-disabled:hover,
+.btn-disabled:focus {
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(224 138 12) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px,
+    rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+}
+
+input {
+  background-color: var(--color-primary);
+  height: 31px;
+  padding: 3px 7px;
+  line-height: normal;
+  border: 1px solid var(--color-accent);
+  border-radius: 3px;
+  /* box-shadow: 0 1px 0 rgb(255 255 255 / 50%), 0 1px 0 rgb(0 0 0 / 7%) inset; */
+  outline: 0;
+  color: var(--color-primary-dark);
+  font-size: 13px;
+}
+
+input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 3px 2px rgb(89 93 237 / 50%);
+}
+
+#excludePattern {
+  width: 80%;
+}

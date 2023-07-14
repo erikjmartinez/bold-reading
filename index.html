@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bold Reading</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="icon" href="icons/32.png" />
+  </head>
+  <body class="container-main">
+    <section class="main_first-section">
+      <button
+        id="toggleBoldReading"
+        class="btn"
+        type="button"
+        class="button is-primary"
+      >
+        Toggle Bold Reading
+      </button>
+    </section>
+
+    <section class="main_second-section">
+      <button id="autoButton" class="btn">Toggle Auto</button>
+    </section>
+
+    <section class="main_third-section">
+      <p>Exclude URL from automatic mode</p>
+      <input type="text" id="excludePattern" name="highlight" />
+      <button id="excludePageButton" class="btn" type="button">Exclude</button>
+    </section>
+
+    <script src="./js/popup.js" type="module"></script>
+  </body>
+</html>
